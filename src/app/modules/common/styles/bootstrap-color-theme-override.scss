@@ -1,0 +1,14 @@
+@import 'theme-variables';
+
+$theme-colors: (
+  "primary": map-get($custom-theme-colors, primary),
+  "secondary":  map-get($custom-theme-colors, secondary),
+  "success":  map-get($custom-theme-colors, success),
+  "info":  map-get($custom-theme-colors, info),
+  "warning":  map-get($custom-theme-colors, warning),
+  "danger":  map-get($custom-theme-colors, danger),
+  "light":  map-get($custom-theme-colors, light),
+  "dark":  map-get($custom-theme-colors, dark)
+);
+
+@import "node_modules/bootstrap/scss/bootstrap";
