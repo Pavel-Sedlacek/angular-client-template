@@ -4,17 +4,20 @@ import { NavbarComponent } from './components/navbar/navbar.component';
 import { FooterComponent } from './components/footer/footer.component';
 import {RouterModule} from "@angular/router";
 import {FontAwesomeModule} from "@fortawesome/angular-fontawesome";
+import { FlashMessagesComponent } from './components/flash-messages/flash-messages.component';
 
 
 
 @NgModule({
   declarations: [
     NavbarComponent,
-    FooterComponent
+    FooterComponent,
+    FlashMessagesComponent
   ],
   exports: [
     FooterComponent,
-    NavbarComponent
+    NavbarComponent,
+    FlashMessagesComponent
   ],
   imports: [
     AngularCommonModule,

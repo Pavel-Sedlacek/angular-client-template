@@ -3,3 +3,22 @@
 <router-outlet>test</router-outlet>
 
 <template-footer></template-footer>
+
+<template-flash-messages></template-flash-messages>
+
+
+<button (click)="flash(OK_STATUS)">
+  ok
+</button>
+<button (click)="flash(ERROR_STATUS)">
+  error
+</button>
+<button (click)="flash(SUCCESS_STATUS)">
+  success
+</button>
+<button (click)="flash(INFO_STATUS)">
+  info
+</button>
+<button (click)="flash(WARNING_STATUS)">
+  warning
+</button>

@@ -1,0 +1,39 @@
+<div class="toast-container position-absolute top-0 end-0 m-2">
+
+  <!--        case FlashMessageStatus.ERROR:
+          return this.error
+        case FlashMessageStatus.WARNING:
+          return this.warning
+        case FlashMessageStatus.OK:
+          return this.ok
+        case FlashMessageStatus.INFO:
+          return this.info
+        case FlashMessageStatus.SUCCESS:
+          return this.success-->
+
+  <div class="toast show" role="alert" aria-live="assertive" aria-atomic="true" *ngFor="let message of getMessages()">
+    <div class="toast-header text-white"
+         [class.bg-warning]="message[1].status === WARNING_STATUS"
+         [class.bg-info]="message[1].status === INFO_STATUS"
+         [class.bg-danger]="message[1].status === ERROR_STATUS"
+         [class.bg-success]="message[1].status === SUCCESS_STATUS"
+         [class.bg-ok]="message[1].status === OK_STATUS">
+
+      <fa-icon *ngIf="message[1].status === WARNING_STATUS" [icon]="warning"></fa-icon>
+      <fa-icon *ngIf="message[1].status === INFO_STATUS" [icon]="info"></fa-icon>
+      <fa-icon *ngIf="message[1].status === ERROR_STATUS" [icon]="error"></fa-icon>
+      <fa-icon *ngIf="message[1].status === SUCCESS_STATUS" [icon]="success"></fa-icon>
+      <fa-icon *ngIf="message[1].status === OK_STATUS" [icon]="ok"></fa-icon>
+
+      <strong class="me-auto">{{message[1].text.heading}}</strong>
+      <small>{{message[1].text.postfix}}</small>
+
+      <button (click)="close(message[0])" type="button" class="btn-close" data-bs-dismiss="toast"
+              aria-label="Close"></button>
+    </div>
+    <div class="toast-body">
+      {{message[1].text.text}}
+    </div>
+  </div>
+
+</div>
