@@ -4,6 +4,7 @@ import {FlashMessage} from "../../services/flesh_messages/flashMessage.interface
 import {FlashMessageStatus} from "../../services/flesh_messages/flashMessageStatus.enum";
 import {NumberRangePicker} from "../../services/util/range-locker.math";
 import {faBookmark, faCheck, faExclamation, faInfo, faTimes} from "@fortawesome/free-solid-svg-icons";
+import {ActionStatus} from "../../services/action/action-status.enum";
 
 @Component({
   selector: 'template-flash-messages',
@@ -21,11 +22,17 @@ export class FlashMessagesComponent implements OnInit {
   readonly info = faInfo;
   readonly ok = faBookmark;
 
-  readonly OK_STATUS: FlashMessageStatus = FlashMessageStatus.OK;
-  readonly SUCCESS_STATUS: FlashMessageStatus = FlashMessageStatus.SUCCESS;
-  readonly WARNING_STATUS: FlashMessageStatus = FlashMessageStatus.WARNING;
-  readonly ERROR_STATUS: FlashMessageStatus = FlashMessageStatus.ERROR;
-  readonly INFO_STATUS: FlashMessageStatus = FlashMessageStatus.INFO;
+  readonly OK_FLASH_STATUS: FlashMessageStatus = FlashMessageStatus.OK;
+  readonly SUCCESS_FLASH_STATUS: FlashMessageStatus = FlashMessageStatus.SUCCESS;
+  readonly WARNING_FLASH_STATUS: FlashMessageStatus = FlashMessageStatus.WARNING;
+  readonly ERROR_FLASH_STATUS: FlashMessageStatus = FlashMessageStatus.ERROR;
+  readonly INFO_FLASH_STATUS: FlashMessageStatus = FlashMessageStatus.INFO;
+
+  readonly OK_ACTION_STATUS: ActionStatus = ActionStatus.OK;
+  readonly SUCCESS_ACTION_STATUS: ActionStatus = ActionStatus.SUCCESS;
+  readonly WARNING_ACTION_STATUS: ActionStatus = ActionStatus.WARNING;
+  readonly ERROR_ACTION_STATUS: ActionStatus = ActionStatus.ERROR;
+  readonly INFO_ACTION_STATUS: ActionStatus = ActionStatus.INFO;
 
   constructor(private readonly flashMessages: FlashMessagesService) {
     this.flashMessages.last_notification.subscribe(
@@ -33,12 +40,12 @@ export class FlashMessagesComponent implements OnInit {
         if (s !== undefined) {
           this.addNotification(s)
         }
-        console.debug(this.messages)
       },
       e => this.addNotification({
         status: FlashMessageStatus.ERROR,
         text: {text: 'Error while creating flash message', heading: 'Flash', postfix: 'ERROR'},
-        timout: {millis: 10000}
+        timout: {millis: 10000},
+        actions: []
       })
     )
   }

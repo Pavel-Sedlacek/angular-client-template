@@ -1,31 +1,19 @@
 <div class="toast-container position-absolute top-0 end-0 m-2">
-
-  <!--        case FlashMessageStatus.ERROR:
-          return this.error
-        case FlashMessageStatus.WARNING:
-          return this.warning
-        case FlashMessageStatus.OK:
-          return this.ok
-        case FlashMessageStatus.INFO:
-          return this.info
-        case FlashMessageStatus.SUCCESS:
-          return this.success-->
-
   <div class="toast show" role="alert" aria-live="assertive" aria-atomic="true" *ngFor="let message of getMessages()">
     <div class="toast-header text-white"
-         [class.bg-warning]="message[1].status === WARNING_STATUS"
-         [class.bg-info]="message[1].status === INFO_STATUS"
-         [class.bg-danger]="message[1].status === ERROR_STATUS"
-         [class.bg-success]="message[1].status === SUCCESS_STATUS"
-         [class.bg-ok]="message[1].status === OK_STATUS">
+         [class.bg-warning]="message[1].status === WARNING_FLASH_STATUS"
+         [class.bg-info]="message[1].status === INFO_FLASH_STATUS"
+         [class.bg-danger]="message[1].status === ERROR_FLASH_STATUS"
+         [class.bg-success]="message[1].status === SUCCESS_FLASH_STATUS"
+         [class.bg-ok]="message[1].status === OK_FLASH_STATUS">
 
-      <fa-icon *ngIf="message[1].status === WARNING_STATUS" [icon]="warning"></fa-icon>
-      <fa-icon *ngIf="message[1].status === INFO_STATUS" [icon]="info"></fa-icon>
-      <fa-icon *ngIf="message[1].status === ERROR_STATUS" [icon]="error"></fa-icon>
-      <fa-icon *ngIf="message[1].status === SUCCESS_STATUS" [icon]="success"></fa-icon>
-      <fa-icon *ngIf="message[1].status === OK_STATUS" [icon]="ok"></fa-icon>
+      <fa-icon *ngIf="message[1].status === WARNING_FLASH_STATUS" [icon]="warning"></fa-icon>
+      <fa-icon *ngIf="message[1].status === INFO_FLASH_STATUS" [icon]="info"></fa-icon>
+      <fa-icon *ngIf="message[1].status === ERROR_FLASH_STATUS" [icon]="error"></fa-icon>
+      <fa-icon *ngIf="message[1].status === SUCCESS_FLASH_STATUS" [icon]="success"></fa-icon>
+      <fa-icon *ngIf="message[1].status === OK_FLASH_STATUS" [icon]="ok"></fa-icon>
 
-      <strong class="me-auto">{{message[1].text.heading}}</strong>
+      <strong class="me-auto ms-2">{{message[1].text.heading}}</strong>
       <small>{{message[1].text.postfix}}</small>
 
       <button (click)="close(message[0])" type="button" class="btn-close" data-bs-dismiss="toast"
@@ -34,6 +22,15 @@
     <div class="toast-body">
       {{message[1].text.text}}
     </div>
+    <div class="d-flex justify-content-between flex-row pb-2 mx-1">
+      <button class="btn text-white"
+        *ngFor="let action of message[1].actions"
+        [class.btn-warning]="action.status === WARNING_ACTION_STATUS"
+        [class.btn-info]="action.status === INFO_ACTION_STATUS"
+        [class.btn-danger]="action.status === ERROR_ACTION_STATUS"
+        [class.btn-success]="action.status === SUCCESS_ACTION_STATUS"
+        [class.btn-ok]="action.status === OK_ACTION_STATUS"
+        (click)="$event.preventDefault(); action.onClick($event)">{{action.title}}</button>
+    </div>
   </div>
-
 </div>

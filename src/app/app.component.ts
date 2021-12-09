@@ -2,6 +2,7 @@ import {Component} from '@angular/core';
 import {ClientSettingsService} from "./modules/common/services/client-settings.service";
 import {FlashMessagesService} from "./modules/common/services/flesh_messages/flash-messages.service";
 import {FlashMessageStatus} from "./modules/common/services/flesh_messages/flashMessageStatus.enum";
+import {ActionStatus} from "./modules/common/services/action/action-status.enum";
 
 @Component({
   selector: 'app-root',
@@ -15,7 +16,8 @@ export class AppComponent {
       e => this.flashMessages.last_notification.next({
         status: FlashMessageStatus.WARNING,
         text: {text: 'error loading title', heading: 'Title', postfix: 'ERROR'},
-        timout: {millis: 8000}
+        timout: {millis: 8000},
+        actions: []
       })
     )
   }
@@ -32,7 +34,19 @@ export class AppComponent {
     this.flashMessages.last_notification.next({
       status: status,
       text: {text: 'jej the flash message component is working', heading: 'Jej', postfix: 'OK'},
-      timout: {millis: 522000}
+      timout: {millis: 522000},
+      actions: [
+        {
+          status: ActionStatus.INFO, onClick: $event => {
+            this.flash(this.OK_STATUS)
+          }, title: 'bruh'
+        },
+        {
+          status: ActionStatus.WARNING, onClick: $event => {
+            this.flash(this.OK_STATUS)
+          }, title: 'bruh'
+        }
+      ]
     })
   }
 }
