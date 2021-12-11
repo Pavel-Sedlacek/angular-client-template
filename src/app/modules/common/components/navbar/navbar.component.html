@@ -1,16 +1,29 @@
-<nav class="navbar navbar-expand-lg navbar-light bg-light">
+<nav class="navbar navbar-expand-lg"
+     templateTheme
+     light="navbar-light bg-light"
+     dark="navbar-dark bg-dark"
+>
   <div class="container-fluid">
     <a class="navbar-brand" routerLink="">Navbar</a>
-    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup"
+            aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
-    <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+    <div class="collapse navbar-collapse d-flex flex-row justify-content-between" id="navbarNavAltMarkup">
       <div class="navbar-nav">
         <a class="nav-link active" routerLink="">Home</a>
         <a class="nav-link" routerLink="">Features</a>
         <a class="nav-link" routerLink="">Pricing</a>
         <a class="nav-link disabled" routerLink="">Disabled</a>
       </div>
+      <div class="">
+        <label templateTheme
+               light="btn-light btn-outline-primary"
+               dark="btn-dark btn-outline-primary-dark" class="btn" (click)="switchTheme()">
+          <fa-icon [icon]="faMoon"></fa-icon>
+        </label>
+      </div>
     </div>
+
   </div>
 </nav>

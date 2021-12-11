@@ -3,6 +3,7 @@ import {ClientSettingsService} from "./modules/common/services/client-settings.s
 import {FlashMessagesService} from "./modules/common/services/flesh_messages/flash-messages.service";
 import {FlashMessageStatus} from "./modules/common/services/flesh_messages/flashMessageStatus.enum";
 import {ActionStatus} from "./modules/common/services/action/action-status.enum";
+import {Themes} from "./modules/common/services/theming/theme.enum";
 
 @Component({
   selector: 'app-root',

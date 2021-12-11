@@ -7,18 +7,42 @@
 <template-flash-messages></template-flash-messages>
 
 <!--TODO remove-->
-<button (click)="flash(OK_STATUS)">
+<button class="btn"
+        templateTheme
+        light="btn-primary"
+        dark="btn-primary-dark"
+        (click)="flash(OK_STATUS)">
   ok
 </button>
-<button (click)="flash(ERROR_STATUS)">
+<button class="btn"
+        templateTheme
+        light="btn-primary"
+        dark="btn-primary-dark"
+        (click)="flash(ERROR_STATUS)"
+>
   error
 </button>
-<button (click)="flash(SUCCESS_STATUS)">
+<button class="btn"
+        templateTheme
+        light="btn-primary"
+        dark="btn-primary-dark"
+        (click)="flash(SUCCESS_STATUS)"
+>
   success
 </button>
-<button (click)="flash(INFO_STATUS)">
+<button class="btn"
+        templateTheme
+        light="btn-primary"
+        dark="btn-primary-dark"
+        (click)="flash(INFO_STATUS)"
+>
   info
 </button>
-<button (click)="flash(WARNING_STATUS)">
+<button class="btn"
+        templateTheme
+        light="btn-primary"
+        dark="btn-primary-dark"
+        (click)="flash(WARNING_STATUS)"
+>
   warning
 </button>

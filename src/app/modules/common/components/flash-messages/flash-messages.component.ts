@@ -67,6 +67,8 @@ export class FlashMessagesComponent implements OnInit {
   }
 
   close(index: number) {
+    console.debug(this.messages)
+    console.debug(index)
     this.messages.delete(index)
   }
 }

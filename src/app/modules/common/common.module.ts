@@ -5,6 +5,7 @@ import { FooterComponent } from './components/footer/footer.component';
 import {RouterModule} from "@angular/router";
 import {FontAwesomeModule} from "@fortawesome/angular-fontawesome";
 import { FlashMessagesComponent } from './components/flash-messages/flash-messages.component';
+import { ThemeDirective } from './components/directives/theme.directive';
 
 
 
@@ -12,12 +13,14 @@ import { FlashMessagesComponent } from './components/flash-messages/flash-messag
   declarations: [
     NavbarComponent,
     FooterComponent,
-    FlashMessagesComponent
+    FlashMessagesComponent,
+    ThemeDirective
   ],
   exports: [
     FooterComponent,
     NavbarComponent,
-    FlashMessagesComponent
+    FlashMessagesComponent,
+    ThemeDirective
   ],
   imports: [
     AngularCommonModule,

@@ -1,13 +1,22 @@
 $custom-theme-colors: (
-  primary: #a725ff,
-  secondary: #bb6262,
-
+  primary: #cebfff,
+  secondary: #ffacac,
   success: #37cb67,
   info: #73a6c2,
   warning: #d3864e,
   danger: #e86565,
   ok: #92eed9,
+  background: #d9d9d9,
+  light: #a5f6df,
 
-  light: #e6cdfc,
-  dark: #2a1111
-)
+
+  primary-dark: #006c5e,
+  secondary-dark: #cc6969,
+  success-dark: #08b742,
+  info-dark: #2b81b0,
+  warning-dark: #d27736,
+  danger-dark: #c23434,
+  ok-dark: #0f7e5f,
+  background-dark: #565656,
+  dark: #150054,
+);
