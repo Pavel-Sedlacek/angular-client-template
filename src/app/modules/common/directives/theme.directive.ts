@@ -1,8 +1,8 @@
 import {Directive, ElementRef, Input, OnInit} from '@angular/core';
-import {ClientSettingsService} from "../../services/client-settings.service";
-import {FlashMessagesService} from "../../services/flesh_messages/flash-messages.service";
-import {FlashMessageStatus} from "../../services/flesh_messages/flashMessageStatus.enum";
-import {Themes} from "../../services/theming/theme.enum";
+import {ClientSettingsService} from "../services/client-settings.service";
+import {FlashMessagesService} from "../services/flash-messages.service";
+import {FlashMessageStatus} from "../res/flash_messages/flashMessageStatus.enum";
+import {Themes} from "../res/theming/theme.enum";
 
 @Directive({
   selector: '[templateTheme]'

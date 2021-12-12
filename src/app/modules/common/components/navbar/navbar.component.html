@@ -11,10 +11,7 @@
     </button>
     <div class="collapse navbar-collapse d-flex flex-row justify-content-between" id="navbarNavAltMarkup">
       <div class="navbar-nav">
-        <a class="nav-link active" routerLink="">Home</a>
-        <a class="nav-link" routerLink="">Features</a>
-        <a class="nav-link" routerLink="">Pricing</a>
-        <a class="nav-link disabled" routerLink="">Disabled</a>
+        <template-routable-link *ngFor="let route of navbarRoutes()" [link]="route"></template-routable-link>
       </div>
       <div class="">
         <label templateTheme

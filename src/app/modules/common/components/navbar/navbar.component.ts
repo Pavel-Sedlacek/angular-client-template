@@ -1,7 +1,8 @@
-import { Component, OnInit } from '@angular/core';
-import {Themes} from "../../services/theming/theme.enum";
+import {Component, OnInit} from '@angular/core';
 import {ClientSettingsService} from "../../services/client-settings.service";
-import { faMoon } from '@fortawesome/free-solid-svg-icons';
+import {faMoon} from '@fortawesome/free-solid-svg-icons';
+import {RouteReference} from "../../res/routing/link-reference.interface";
+import {RoutingService} from "../../services/routing.service";
 
 @Component({
   selector: 'template-navbar',
@@ -10,14 +11,17 @@ import { faMoon } from '@fortawesome/free-solid-svg-icons';
 })
 export class NavbarComponent implements OnInit {
 
-  constructor(private readonly clientSettings: ClientSettingsService) { }
+  constructor(private readonly clientSettings: ClientSettingsService) {
+  }
 
   ngOnInit(): void {
   }
 
-  readonly LIGHT_THEME = Themes.LIGHT
-  readonly DARK_THEME = Themes.DARK
   readonly faMoon = faMoon;
+
+  navbarRoutes(): RouteReference[] {
+    return RoutingService.NAVBAR_LINKS
+  }
 
   switchTheme() {
     this.clientSettings.theme.switch()

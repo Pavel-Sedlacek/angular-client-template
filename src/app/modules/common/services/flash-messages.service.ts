@@ -1,7 +1,6 @@
 import {Injectable} from '@angular/core';
-import {FlashMessage} from "./flashMessage.interface";
-import {BehaviorSubject, Subject} from "rxjs";
-import {not} from "rxjs/internal-compatibility";
+import {FlashMessage} from "../res/flash_messages/flashMessage.interface";
+import {BehaviorSubject} from "rxjs";
 
 @Injectable({
   providedIn: 'root'

@@ -2,3 +2,7 @@
 @import 'src/app/modules/common/styles/theme-variables';
 @import 'src/app/modules/common/styles/bootstrap-color-theme-override';
 @import 'src/app/modules/common/styles/generated';
+
+.pointer {
+  cursor: pointer;
+}

@@ -1,9 +1,11 @@
 import {Component} from '@angular/core';
 import {ClientSettingsService} from "./modules/common/services/client-settings.service";
-import {FlashMessagesService} from "./modules/common/services/flesh_messages/flash-messages.service";
-import {FlashMessageStatus} from "./modules/common/services/flesh_messages/flashMessageStatus.enum";
-import {ActionStatus} from "./modules/common/services/action/action-status.enum";
-import {Themes} from "./modules/common/services/theming/theme.enum";
+import {FlashMessagesService} from "./modules/common/services/flash-messages.service";
+import {FlashMessageStatus} from "./modules/common/res/flash_messages/flashMessageStatus.enum";
+import {ActionStatus} from "./modules/common/res/action/action-status.enum";
+import {CookieService} from "./modules/common/services/cookie.service";
+import {TimeWrapper} from "./modules/common/res/models/time.wrapper";
+import {RoutingService} from "./modules/common/services/routing.service";
 
 @Component({
   selector: 'app-root',
@@ -11,25 +13,15 @@ import {Themes} from "./modules/common/services/theming/theme.enum";
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
-  constructor(protected readonly clientSettings: ClientSettingsService, private readonly flashMessages: FlashMessagesService) {
-    this.clientSettings.title.subject.subscribe(
-      s => this.title = s,
-      e => this.flashMessages.last_notification.next({
-        status: FlashMessageStatus.WARNING,
-        text: {text: 'error loading title', heading: 'Title', postfix: 'ERROR'},
-        timout: {millis: 8000},
-        actions: []
-      })
-    )
-  }
-
-  title = '';
-
   readonly OK_STATUS: FlashMessageStatus = FlashMessageStatus.OK;
   readonly SUCCESS_STATUS: FlashMessageStatus = FlashMessageStatus.SUCCESS;
   readonly WARNING_STATUS: FlashMessageStatus = FlashMessageStatus.WARNING;
   readonly ERROR_STATUS: FlashMessageStatus = FlashMessageStatus.ERROR;
   readonly INFO_STATUS: FlashMessageStatus = FlashMessageStatus.INFO;
+
+  constructor(protected readonly clientSettings: ClientSettingsService, private readonly flashMessages: FlashMessagesService, private readonly cookieService: CookieService, private readonly routing: RoutingService) {
+  }
+
 
   flash(status: FlashMessageStatus) {
     this.flashMessages.last_notification.next({
@@ -49,5 +41,18 @@ export class AppComponent {
         }
       ]
     })
+  }
+
+  getCookies() {
+    console.debug(
+      this.cookieService.getCookie<TimeWrapper>({name: 'bruh'}));
+  }
+
+  setCookies() {
+    this.cookieService.setCookie({name: 'bruh', expiry: {hours: 2}, value: {millis: 1241}})
+  }
+
+  deleteCookies() {
+    this.cookieService.deleteCookie({name: 'bruh'})
   }
 }

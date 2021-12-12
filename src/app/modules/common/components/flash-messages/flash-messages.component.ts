@@ -1,10 +1,10 @@
 import {Component, OnInit} from '@angular/core';
-import {FlashMessagesService} from "../../services/flesh_messages/flash-messages.service";
-import {FlashMessage} from "../../services/flesh_messages/flashMessage.interface";
-import {FlashMessageStatus} from "../../services/flesh_messages/flashMessageStatus.enum";
-import {NumberRangePicker} from "../../services/util/range-locker.math";
+import {FlashMessagesService} from "../../services/flash-messages.service";
+import {FlashMessage} from "../../res/flash_messages/flashMessage.interface";
+import {FlashMessageStatus} from "../../res/flash_messages/flashMessageStatus.enum";
+import {NumberRangePicker} from "../../res/util/range-locker.math";
 import {faBookmark, faCheck, faExclamation, faInfo, faTimes} from "@fortawesome/free-solid-svg-icons";
-import {ActionStatus} from "../../services/action/action-status.enum";
+import {ActionStatus} from "../../res/action/action-status.enum";
 
 @Component({
   selector: 'template-flash-messages',

@@ -1,8 +1,8 @@
 <div class="toast-container position-absolute top-0 end-0 m-2">
   <div class="toast show"
        templateTheme
-       light="bg-light text-dark shadow-sm-dark"
-       dark="bg-dark text-light shadow-sm-light"
+       dark="bg-black text-light shadow-sm-light"
+       light="bg-white text-dark shadow-sm-dark"
        role="alert" aria-live="assertive" aria-atomic="true" *ngFor="let message of getMessages()">
     <div class="toast-header text-white"
          [class.bg-warning]="message[1].status === WARNING_FLASH_STATUS"

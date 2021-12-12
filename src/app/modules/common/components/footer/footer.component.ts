@@ -1,5 +1,7 @@
-import { Component, OnInit } from '@angular/core';
-import {faEnvelope, faGem, faHome, faPhone } from '@fortawesome/free-solid-svg-icons';
+import {Component, OnInit} from '@angular/core';
+import {faEnvelope, faGem, faHome, faPhone} from '@fortawesome/free-solid-svg-icons';
+import {RoutingService} from "../../services/routing.service";
+import {ExternalLinkReference} from "../../res/routing/external-link-reference.interface";
 
 @Component({
   selector: 'template-footer',
@@ -12,9 +14,13 @@ export class FooterComponent implements OnInit {
   readonly faPhone = faPhone;
   readonly faGem = faGem;
 
-  constructor() { }
+  constructor(private readonly routingService: RoutingService) {
+  }
 
   ngOnInit(): void {
   }
 
+  socialLinks(): ExternalLinkReference[] {
+    return RoutingService.SOCIAL_MEDIA_LINKS
+  }
 }
