@@ -10,12 +10,12 @@ import {CommonModule} from "./modules/common/common.module";
   declarations: [
     AppComponent
   ],
-  imports: [
-    BrowserModule,
-    AppRoutingModule,
-    FontAwesomeModule,
-    CommonModule
-  ],
+    imports: [
+        BrowserModule,
+        AppRoutingModule,
+        FontAwesomeModule,
+        CommonModule
+    ],
   providers: [],
   bootstrap: [AppComponent]
 })

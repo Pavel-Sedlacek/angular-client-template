@@ -22,7 +22,7 @@ Simple template for any angular client.
 ## Roadmap
 
 - [ ] router
-- [ ] regex validators
+- [ ] forms (https://www.npmjs.com/package/angular-reactive-form)
 - [ ] ftp service
 
 ## Contributions
