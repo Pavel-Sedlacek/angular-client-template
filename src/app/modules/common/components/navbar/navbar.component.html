@@ -15,10 +15,19 @@
       </div>
       <div class="">
         <label templateTheme
-               light="btn-light btn-outline-primary"
-               dark="btn-dark btn-outline-primary-dark" class="btn" (click)="switchTheme()">
-          <fa-icon [icon]="faMoon"></fa-icon>
+               light="btn-light shadow-sm-dark-hover"
+               dark="btn-dark shadow-sm-light-hover" class="btn pointer" (click)="switchTheme()">
+          <fa-icon [icon]="fa_moon"></fa-icon>
         </label>
+        <label templateTheme
+               light="btn-light shadow-sm-dark-hover"
+               dark="btn-dark shadow-sm-light-hover" class="btn ms-2 pointer" (click)="select_lang = !select_lang">
+          <fa-icon [icon]="fa_language"></fa-icon>
+        </label>
+        <div class="position-absolute d-flex flex-column rounded-1 mt-2" templateTheme light="transparent-dark-20 text-light" dark="transparent-light-20 text-dark" *ngIf="select_lang">
+          <div templateTheme light="shadow-sm-dark-hover" dark="shadow-sm-light-hover"
+            class="py-1 pointer py-2 px-4" *ngFor="let language of languages" (click)="select_language(language)">{{language}}</div>
+        </div>
       </div>
     </div>
 
