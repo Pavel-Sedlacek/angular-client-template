@@ -1,0 +1,24 @@
+<ng-container *ngIf="visible">
+  <div class="absolute-zero">
+    <div class="position-absolute rounded-1 shadow-sm-primary" #modal
+         [class.absolute-top]="position == 'top'"
+         [class.absolute-center]="position == 'center'"
+         [class.absolute-bot]="position == 'bot'"
+         [class.absolute-small]="size == 'small'"
+         [class.absolute-medium]="size == 'medium'"
+         [class.absolute-large]="size == 'large'"
+         [class.absolute-fullscreen]="size == 'fullscreen'"
+         templateTheme
+         light="transparent-dark-5 text-light"
+         dark="transparent-light-5 text-dark">
+      <div
+        class="d-flex flex-row justify-content-between align-items-center py-1 px-4 mt-2" templateTheme light="border-bottom-light-groove-2" dark="border-bottom-dark-groove-2">
+        <span class="fs-3">{{header}}</span>
+        <fa-icon *ngIf="closable.includes('button')" class="fs-5 pointer" [icon]="fa_close" (click)="visibleChange.emit(false);"></fa-icon>
+      </div>
+      <div class="mt-3 py-1 px-4">
+        <ng-content></ng-content>
+      </div>
+    </div>
+  </div>
+</ng-container>
