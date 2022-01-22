@@ -6,3 +6,15 @@
 .pointer {
   cursor: pointer;
 }
+
+* {
+  transition: background-color 1s ease-in-out, color 1s ease-in-out;
+}
+
+.absolute-zero {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}

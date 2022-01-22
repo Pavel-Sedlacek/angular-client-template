@@ -1,4 +1,4 @@
-import {Component} from '@angular/core';
+import {Component, HostListener} from '@angular/core';
 import {ClientSettingsService} from "./modules/common/services/client-settings.service";
 import {FlashMessagesService} from "./modules/common/services/flash-messages.service";
 import {FlashMessageStatus} from "./modules/common/res/flash_messages/flashMessageStatus.enum";
@@ -6,6 +6,9 @@ import {ActionStatus} from "./modules/common/res/action/action-status.enum";
 import {CookieService} from "./modules/common/services/cookie.service";
 import {TimeWrapper} from "./modules/common/res/models/time.wrapper";
 import {RoutingService} from "./modules/common/services/routing.service";
+import {FileTransferService} from "./modules/common/services/file-transfer.service";
+import {Language} from "./modules/common/res/translations/language.enum";
+import {PageClickService} from "./modules/common/services/page-click.service";
 
 @Component({
   selector: 'app-root',
@@ -13,46 +16,25 @@ import {RoutingService} from "./modules/common/services/routing.service";
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
-  readonly OK_STATUS: FlashMessageStatus = FlashMessageStatus.OK;
-  readonly SUCCESS_STATUS: FlashMessageStatus = FlashMessageStatus.SUCCESS;
-  readonly WARNING_STATUS: FlashMessageStatus = FlashMessageStatus.WARNING;
-  readonly ERROR_STATUS: FlashMessageStatus = FlashMessageStatus.ERROR;
-  readonly INFO_STATUS: FlashMessageStatus = FlashMessageStatus.INFO;
+  file?: File;
+  visible = true;
 
-  constructor(protected readonly clientSettings: ClientSettingsService, private readonly flashMessages: FlashMessagesService, private readonly cookieService: CookieService, private readonly routing: RoutingService) {
+  constructor(
+    protected readonly clientSettings: ClientSettingsService,
+    private readonly flashMessages: FlashMessagesService,
+    private readonly cookieService: CookieService,
+    private readonly routing: RoutingService,
+    private readonly fts: FileTransferService,
+    private readonly page_click: PageClickService
+  ) {
   }
 
+  @HostListener('document:click', ['$event'])
+  public onPageClick(event: Event) {
+    this.page_click.click.next(event)
+  };
 
-  flash(status: FlashMessageStatus) {
-    this.flashMessages.last_notification.next({
-      status: status,
-      text: {text: 'jej the flash message component is working', heading: 'Jej', postfix: 'OK'},
-      timout: {millis: 522000},
-      actions: [
-        {
-          status: ActionStatus.INFO, onClick: $event => {
-            this.flash(this.OK_STATUS)
-          }, title: 'bruh'
-        },
-        {
-          status: ActionStatus.WARNING, onClick: $event => {
-            this.flash(this.OK_STATUS)
-          }, title: 'bruh'
-        }
-      ]
-    })
-  }
-
-  getCookies() {
-    console.debug(
-      this.cookieService.getCookie<TimeWrapper>({name: 'bruh'}));
-  }
-
-  setCookies() {
-    this.cookieService.setCookie({name: 'bruh', expiry: {hours: 2}, value: {millis: 1241}})
-  }
-
-  deleteCookies() {
-    this.cookieService.deleteCookie({name: 'bruh'})
+  ft(): void {
+    this.fts.upload_file('xD', {dataName: 'f', file: this.file??new File([],'') }, {xD: 2, bruh: 2})
   }
 }

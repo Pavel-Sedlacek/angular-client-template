@@ -8,6 +8,10 @@ import {FlashMessagesComponent} from './components/flash-messages/flash-messages
 import {ThemeDirective} from './directives/theme.directive';
 import {RoutableLinkComponent} from './components/links/routable-link/routable-link.component';
 import {ExternalLinkComponent} from './components/links/external-link/external-link.component';
+import { SingleFileComponent } from './components/forms/single-file/single-file.component';
+import { TranslatePipe } from './pipes/translate.pipe';
+import { ModalComponent } from './components/modal/modal.component';
+import {FormsModule} from "@angular/forms";
 
 
 @NgModule({
@@ -17,18 +21,25 @@ import {ExternalLinkComponent} from './components/links/external-link/external-l
     FlashMessagesComponent,
     ThemeDirective,
     RoutableLinkComponent,
-    ExternalLinkComponent
+    ExternalLinkComponent,
+    SingleFileComponent,
+    TranslatePipe,
+    ModalComponent
   ],
-  exports: [
-    FooterComponent,
-    NavbarComponent,
-    FlashMessagesComponent,
-    ThemeDirective
-  ],
-  imports: [
-    AngularCommonModule,
-    RouterModule,
-    FontAwesomeModule
-  ]
+    exports: [
+        FooterComponent,
+        NavbarComponent,
+        FlashMessagesComponent,
+        ThemeDirective,
+        SingleFileComponent,
+        TranslatePipe,
+        ModalComponent
+    ],
+    imports: [
+        AngularCommonModule,
+        RouterModule,
+        FontAwesomeModule,
+        FormsModule
+    ]
 })
 export class CommonModule { }

@@ -1,5 +1,7 @@
 @import "theme-variables";
 
+// FIXME MOBILE FIRST DESIGN LMAO
+
 $sizes: (
   sm: 2px,
   md: 5px,
@@ -8,10 +10,94 @@ $sizes: (
   xxlg: 10px,
 );
 
+$intensities: [100, 90, 80, 70, 60, 50, 40, 30, 20, 10, 5, 0];
+
+$screen_position: (
+  top: 5%,
+  center: 50%,
+  bot: 95%
+);
+
+$modal_sizes: (
+  small: (
+    max-width: 20%,
+    min-width: 20%,
+    min-height: 20%,
+    max-height: auto
+  ),
+  medium: (
+    max-width: 40%,
+    min-width: 40%,
+    min-height: 40%,
+    max-height: auto
+  ),
+  large: (
+    max-width: 70%,
+    min-width: 70%,
+    min-height: 70%,
+    max-height: auto
+  ),
+  fullscreen: (
+    max-width: 100%,
+    min-width: 100%,
+    min-height: 100%,
+    max-height: 100%
+  )
+);
+
+$border-sizes: (1: 1px, 2: 2px, 3: 3px, 4: 4 p, 5: 5px, 6: 6px, 7: 7px, 8: 8px);
+
+$border-positions: (
+  bottom: (a: 0, b: 0, c: 0, d: 0)
+);
+
+$border-styles: [solid, dotted, dashed, double, groove, ridge, inset, ouset, none, hidden];
+
+@each $size_name, $size_value in $border-sizes {
+  @each $position_name, $position_value in $border-positions {
+    @each $color_name, $color_value in $custom-theme-colors {
+      @each $border_style in $border-styles {
+        .border-#{$position_name}-#{$color_name}-#{$border-style}-#{$size_name} {
+          border-#{$position_name}: $size_value $border-style $color_value;
+        }
+      }
+    }
+  }
+}
+
+
 @each $sz_name, $sz_value in $sizes {
   @each $cl_name, $cl_value in $custom-theme-colors {
     .shadow-#{$sz_name}-#{$cl_name} {
       box-shadow: 0 0 ($sz_value * 5) ($sz_value) $cl_value;
     }
+    .shadow-#{$sz_name}-#{$cl_name}-hover:hover {
+      box-shadow: 0 0 ($sz_value * 5) ($sz_value) $cl_value;
+    }
+  }
+}
+
+@each $intensity in $intensities {
+  @each $cl_name, $cl_value in $custom-theme-colors {
+    .transparent-#{$cl_name}-#{$intensity} {
+      background: transparentize($cl_value, $intensity / 100);
+    }
+  }
+}
+
+@each $name, $position in $screen_position {
+  .absolute-#{$name} {
+    left: 50%;
+    top: $position;
+    transform: translate(-50%, -$position);
+  }
+}
+
+@each $name, $values in $modal_sizes {
+  .absolute-#{$name} {
+    min-width: map-get($values, min-width);
+    max-width: map-get($values, max-width);
+    min-height: map-get($values, min-height);
+    max-height: map-get($values, max-height);
   }
 }

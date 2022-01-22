@@ -6,68 +6,15 @@
 
 <template-flash-messages></template-flash-messages>
 
-<!--&lt;!&ndash;TODO remove&ndash;&gt;-->
-<!--<button class="btn"-->
-<!--        templateTheme-->
-<!--        light="btn-primary"-->
-<!--        dark="btn-primary-dark"-->
-<!--        (click)="flash(OK_STATUS)">-->
-<!--  ok-->
-<!--</button>-->
-<!--<button class="btn"-->
-<!--        templateTheme-->
-<!--        light="btn-primary"-->
-<!--        dark="btn-primary-dark"-->
-<!--        (click)="flash(ERROR_STATUS)"-->
-<!--&gt;-->
-<!--  error-->
-<!--</button>-->
-<!--<button class="btn"-->
-<!--        templateTheme-->
-<!--        light="btn-primary"-->
-<!--        dark="btn-primary-dark"-->
-<!--        (click)="flash(SUCCESS_STATUS)"-->
-<!--&gt;-->
-<!--  success-->
-<!--</button>-->
-<!--<button class="btn"-->
-<!--        templateTheme-->
-<!--        light="btn-primary"-->
-<!--        dark="btn-primary-dark"-->
-<!--        (click)="flash(INFO_STATUS)"-->
-<!--&gt;-->
-<!--  info-->
-<!--</button>-->
-<!--<button class="btn"-->
-<!--        templateTheme-->
-<!--        light="btn-primary"-->
-<!--        dark="btn-primary-dark"-->
-<!--        (click)="flash(WARNING_STATUS)"-->
-<!--&gt;-->
-<!--  warning-->
-<!--</button>-->
+<template-single-file [(file)]="file" theme="primary"></template-single-file>
+<button (click)="ft()">Test</button>
 
-<!--<button (click)="getCookies()"-->
-<!--        class="btn"-->
-<!--        dark="btn-primary-dark"-->
-<!--        light="btn-primary"-->
-<!--        templateTheme-->
-<!--&gt;-->
-<!--  get Cookies-->
-<!--</button>-->
-<!--<button (click)="setCookies()"-->
-<!--        class="btn"-->
-<!--        dark="btn-primary-dark"-->
-<!--        light="btn-primary"-->
-<!--        templateTheme-->
-<!--&gt;-->
-<!--  set Cookies-->
-<!--</button>-->
-<!--<button (click)="deleteCookies()"-->
-<!--        class="btn"-->
-<!--        dark="btn-primary-dark"-->
-<!--        light="btn-primary"-->
-<!--        templateTheme-->
-<!--&gt;-->
-<!--  delete Cookies-->
-<!--</button>-->
+<div>
+  {{ ('template.home.lmao' | translate | async)  }}
+</div>
+
+<template-modal header="lmao" position="top" size="small" [(visible)]="visible" [closable]="['button']">
+  <div>
+    lmao
+  </div>
+</template-modal>
