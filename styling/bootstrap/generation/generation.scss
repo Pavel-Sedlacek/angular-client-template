@@ -1,0 +1,10 @@
+@each $sz_name, $sz_value in $sizes {
+  @each $cl_name, $cl_value in $custom-theme-colors {
+    .shadow-#{$sz_name}-#{$cl_name} {
+      box-shadow: 0 0 ($sz_value * 5) ($sz_value) $cl_value;
+    }
+    .shadow-#{$sz_name}-#{$cl_name}-hover:hover {
+      box-shadow: 0 0 ($sz_value * 5) ($sz_value) $cl_value;
+    }
+  }
+}

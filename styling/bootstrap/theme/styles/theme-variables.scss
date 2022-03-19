@@ -1,0 +1,30 @@
+$custom-theme-colors: (
+  // LIGHT theme colours
+        primary: #219ebc,
+        secondary: #fd9e02,
+        success: #49d276,
+        info: #41c5b4,
+        warning: #d07e40,
+        danger: #b02f2f,
+        ok: #01a17d,
+  // DARK theme colours
+        primary-dark: #18778d,
+        secondary-dark: #bd7400,
+        success-dark: #07802d,
+        info-dark: #127db6,
+        warning-dark: #bb682c,
+        danger-dark: #a12727,
+        ok-dark: #0f7e5f,
+  // BASE theme colours
+        light: #8ecae6,
+        dark: #023047,
+        background: #cbe8fa,
+        background-dark: #0b231e,
+  // BASE colours
+        white: #cce5ff,
+        grey: #808080,
+        black: #181c26,
+        red: #f00,
+        green: #0f0,
+        blue: #00f
+);

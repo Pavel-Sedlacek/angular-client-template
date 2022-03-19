@@ -1,0 +1,7 @@
+<a (click)="select()"
+   *ngIf="link !== undefined"
+   [class.active]="isSelected()"
+   [routerLink]="link!.link"
+   class="nav-link">
+    {{link!.title}}
+</a>

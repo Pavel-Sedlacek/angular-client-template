@@ -1,0 +1,34 @@
+@import 'styles/theme-variables';
+
+$theme-colors: (
+  // LIGHT theme colours
+        "primary": map-get($custom-theme-colors, primary),
+        "secondary": map-get($custom-theme-colors, secondary),
+        "success": map-get($custom-theme-colors, success),
+        "info": map-get($custom-theme-colors, info),
+        "warning": map-get($custom-theme-colors, warning),
+        "danger": map-get($custom-theme-colors, danger),
+        "ok": map-get($custom-theme-colors, ok),
+  // DARK theme colours
+        "primary-dark": map-get($custom-theme-colors, primary-dark),
+        "secondary-dark": map-get($custom-theme-colors, secondary-dark),
+        "success-dark-dark": map-get($custom-theme-colors, success-dark),
+        "info-dark": map-get($custom-theme-colors, info-dark),
+        "warning-dark": map-get($custom-theme-colors, warning-dark),
+        "danger-dark": map-get($custom-theme-colors, danger-dark),
+        "ok-dark": map-get($custom-theme-colors, ok-dark),
+  // BASE colours
+        "white": map-get($custom-theme-colors, white),
+        "grey": map-get($custom-theme-colors, grey),
+        "black": map-get($custom-theme-colors, black),
+        "red": map-get($custom-theme-colors, red),
+        "green": map-get($custom-theme-colors, green),
+        "blue": map-get($custom-theme-colors, blue),
+  // BASE theme colours
+        "light": map-get($custom-theme-colors, light),
+        "dark": map-get($custom-theme-colors, dark),
+        "background": map-get($custom-theme-colors, background),
+        "background-dark": map-get($custom-theme-colors, background-dark),
+);
+
+@import "node_modules/bootstrap/scss/bootstrap";
